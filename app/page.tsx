@@ -262,6 +262,35 @@ export default function Home() {
               </div>
             </motion.div>
 
+            {/* PROJEKT 4: EcoFridge */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-gray-900/40 border border-gray-800 hover:border-green-500/40 p-6 rounded-3xl transition duration-500 group flex flex-col justify-between"
+            >
+              <div>
+                <div className="w-full h-44 rounded-2xl mb-5 bg-gradient-to-br from-emerald-600/20 to-teal-600/20 border border-gray-800 flex items-center justify-center relative overflow-hidden group-hover:from-emerald-600/30 group-hover:to-teal-600/30 transition duration-500">
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:24px_24px] opacity-20"></div>
+                  <span className="text-4xl group-hover:scale-110 transition duration-500">📱</span>
+                </div>
+                <div className="flex justify-between items-center mb-3">
+                  <h3 className="text-xl font-bold text-white group-hover:text-green-400 transition">EcoFridge App</h3>
+                  <span className="text-[10px] font-bold uppercase bg-green-500/10 text-green-400 px-2.5 py-0.5 rounded-full border border-green-500/20">Google Play</span>
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed mb-6">
+                  Inteligentny, natywny program mobilny wspierający zarządzanie żywnością. Oferuje system inwentaryzacji domowej lodówki, powiadomienia o terminach przydatności oraz analizator zdjęć oparty na modelach sztucznej inteligencji.
+                </p>
+              </div>
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Kotlin</span>
+                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Firebase</span>
+                </div>
+                <span className="text-[11px] text-gray-500 italic">Etap: Testy produkcyjne</span>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
