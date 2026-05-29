@@ -85,64 +85,63 @@ export default function Home() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
 
 
-   // --- KOMPONENT SYMULATORA APLIKACJI MOBILNEJ (DOKLEJ GO NA DOLE) ---
-function MobileAppSimulator() {
-  const [activeApp, setActiveApp] = useState<'eco' | 'football'>('eco');
-  const [stage, setStage] = useState<'idle' | 'scanning' | 'result'>('idle');
+    function MobileAppSimulator() {
+      const [items, setItems] = useState<{name: string, cat: string}[]>([
+        { name: 'Ogórki kiszone', cat: 'Spiżarnia' },
+        { name: 'Smalec gęsi', cat: 'Lodówka' }
+      ]);
+      const [newItem, setNewItem] = useState({ name: '', cat: 'Lodówka' });
 
-  const startScan = () => {
-    setStage('scanning');
-    setTimeout(() => setStage('result'), 2000);
-  };
+      const addItem = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!newItem.name) return;
+        setItems([...items, { name: newItem.name, cat: newItem.cat }]);
+        setNewItem({ name: '', cat: 'Lodówka' });
+      };
 
-  return (
-    <div className="flex flex-col md:flex-row gap-10 items-center justify-center p-8 bg-gray-900/40 rounded-3xl border border-gray-800">
-      {/* Ekran telefonu */}
-      <div className="relative w-64 h-[500px] bg-black rounded-[3rem] border-8 border-gray-800 shadow-2xl flex flex-col overflow-hidden">
-        <div className="absolute top-0 w-full h-6 bg-black rounded-b-2xl z-20" />
-        <div className="flex-1 bg-gray-950 p-4 flex flex-col justify-center items-center text-center">
-          {stage === 'idle' && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <p className="text-gray-400 text-sm mb-4">Wybierz projekt do testów:</p>
-              <div className="space-y-2 w-full">
-                <button onClick={() => { setActiveApp('eco'); setStage('idle'); }} className="w-full py-2 bg-emerald-600/20 text-emerald-400 rounded-lg text-xs font-bold">EcoFridge</button>
-                <button onClick={() => { setActiveApp('football'); setStage('idle'); }} className="w-full py-2 bg-blue-600/20 text-blue-400 rounded-lg text-xs font-bold">Football Manager</button>
+      return (
+        <div className="flex flex-col md:flex-row gap-12 items-center justify-center p-8 bg-gray-900/30 rounded-3xl border border-gray-800">
+          {/* Smartfon - Podgląd UI */}
+          <div className="w-64 h-[520px] bg-black rounded-[3rem] border-8 border-gray-800 shadow-2xl overflow-hidden relative">
+            <div className="h-full bg-white flex flex-col">
+              <div className="bg-purple-600 p-4 pt-8 text-white font-bold text-sm shadow-md">Moja Lodówka</div>
+              <div className="flex-1 p-4 space-y-3 overflow-y-auto">
+                {items.map((item, i) => (
+                  <motion.div key={i} initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="bg-gray-100 p-3 rounded-xl border border-gray-200">
+                    <p className="text-gray-800 font-bold text-sm">{item.name}</p>
+                    <p className="text-gray-500 text-[10px]">{item.cat}</p>
+                  </motion.div>
+                ))}
               </div>
-            </motion.div>
-          )}
-          
-          {stage === 'scanning' && (
-            <motion.div className="w-full h-full border-2 border-emerald-500 relative flex items-center justify-center">
-              <motion.div className="w-full h-1 bg-emerald-500 absolute" animate={{ top: ['0%', '100%', '0%'] }} transition={{ duration: 2, repeat: Infinity }} />
-              <p className="text-emerald-500 font-bold animate-pulse">Skanowanie AI...</p>
-            </motion.div>
-          )}
+            </div>
+          </div>
 
-          {stage === 'result' && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-left w-full text-xs text-gray-300">
-              <h4 className="text-emerald-400 font-bold mb-2">Wykryto:</h4>
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Pomidory (2 dni)</li>
-                <li>Kurczak (1 dzień)</li>
-                <li>Jajka (5 dni)</li>
-              </ul>
-              <button onClick={() => setStage('idle')} className="mt-4 w-full py-1.5 border border-gray-700 rounded text-[10px]">Wstecz</button>
-            </motion.div>
-          )}
+          {/* Formularz - "Zewnętrzne sterowanie aplikacją" */}
+          <div className="max-w-sm w-full bg-gray-950 p-6 rounded-2xl border border-gray-800">
+            <h3 className="text-lg font-bold mb-4">Dodaj produkt do symulatora</h3>
+            <form onSubmit={addItem} className="space-y-3">
+              <input 
+                value={newItem.name} 
+                onChange={(e) => setNewItem({...newItem, name: e.target.value})}
+                placeholder="Nazwa produktu (np. Mleko)"
+                className="w-full bg-gray-900 p-3 rounded-lg text-sm border border-gray-800"
+              />
+              <select 
+                value={newItem.cat} 
+                onChange={(e) => setNewItem({...newItem, cat: e.target.value})}
+                className="w-full bg-gray-900 p-3 rounded-lg text-sm border border-gray-800"
+              >
+                <option>Lodówka</option>
+                <option>Zamrażalnik</option>
+              </select>
+              <button type="submit" className="w-full bg-purple-600 py-2 rounded-lg font-bold text-sm hover:bg-purple-700 transition">
+                Zapisz produkt
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-
-      {/* Kontrolki */}
-      <div className="flex-1 space-y-4 max-w-sm">
-        <h3 className="text-2xl font-black">{activeApp === 'eco' ? 'EcoFridge AI' : 'Football Manager Pro'}</h3>
-        <p className="text-sm text-gray-400">{activeApp === 'eco' ? 'Skaner AI lodówki z analizą składników i sugerowaniem przepisów.' : 'Zaawansowane zarządzanie taktyką i statystykami drużyny.'}</p>
-        <button onClick={startScan} className="bg-white text-black font-bold px-6 py-2 rounded-xl text-sm hover:bg-gray-200 transition">
-          {activeApp === 'eco' ? 'Skanuj wnętrze lodówki AI' : 'Generuj raport meczowy'}
-        </button>
-      </div>
-    </div>
-  );
-}
+      );
+    }
 
   return (
     <main className="min-h-screen bg-gray-950 text-white font-sans overflow-x-hidden scroll-smooth">
@@ -361,15 +360,19 @@ function MobileAppSimulator() {
         </div>
       </section>
 
-    <section className="py-24 px-6 md:px-10">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Aplikacje Mobilne</h2>
-          <p className="text-gray-400">Interaktywny podgląd moich projektów mobilnych.</p>
-        </div>
-        <MobileAppSimulator />
+  {/* Wewnątrz sekcji Portfolio */}
+  <section id="mobile-showcase" className="py-24 px-6 md:px-10">
+    <div className="max-w-6xl mx-auto">
+      <h2 className="text-3xl font-extrabold text-center mb-12">Mobilne Centrum Dowodzenia</h2>
+      <MobileAppSimulator />
+      
+      <div className="flex justify-center gap-4 mt-8">
+        {/* Tutaj dodamy przyciski przełączające między EcoFridge a Piłką Nożną */}
+        <button className="px-6 py-2 bg-emerald-600 rounded-full font-bold text-sm">EcoFridge</button>
+        <button className="px-6 py-2 bg-gray-800 rounded-full font-bold text-sm">Football Manager</button>
       </div>
-    </section>
+    </div>
+  </section>
       
 
       {/* Sekcja Usługi */}
@@ -604,7 +607,7 @@ function MobileAppSimulator() {
             >
               jszewczyk728@gmail.com
             </button>
-
+            <br />
             <button 
               onClick={() => setIsTerminalOpen(true)}
               className="text-xs font-bold text-gray-600 hover:text-blue-500 transition cursor-pointer"
