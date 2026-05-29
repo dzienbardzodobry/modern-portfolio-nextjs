@@ -187,7 +187,7 @@ export default function Home() {
                 <div className="flex flex-wrap gap-1.5 mb-5">
                   <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Spring Boot</span>
                   <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">React</span>
-                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">SpringSecurity</span>
+                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Spring Security</span>
                   <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">SQL</span>
 
                 </div>
@@ -288,6 +288,7 @@ export default function Home() {
                 <div className="flex flex-wrap gap-1.5 mb-5">
                   <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Kotlin</span>
                   <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Firebase</span>
+                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Jetpack Compose</span>
                 </div>
                 <span className="text-[11px] text-gray-500 italic">Etap: Testy produkcyjne</span>
               </div>
@@ -651,7 +652,7 @@ function CateringSimulator() {
   const [step, setStep] = useState<number>(0);
 
   const stepsInfo = [
-    { label: "⚛️ React Frontend", desc: "Użytkownik klika: 'Zamów dietę 2500 kcal' i wysyła zapytanie POST." },
+    { label: "⚛️ React Frontend", desc: "Użytkownik uzupełnia formularz: 'Na temat swojego wyglądu." },
     { label: "🛡️ Spring Security", desc: "Filtr przechwytuje żądanie, sprawdza poprawność tokenu Bearer JWT." },
     { label: "🍃 Spring Boot Backend", desc: "Kontroler przetwarza logikę biznesową i przelicza makroskładniki." },
     { label: "🗄️ Baza Danych (SQL)", desc: "Hibernate wykonuje transakcję: Zapisanie zamówienia ze statusem PAID." }
