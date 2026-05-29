@@ -187,7 +187,9 @@ export default function Home() {
                 <div className="flex flex-wrap gap-1.5 mb-5">
                   <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Spring Boot</span>
                   <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">React</span>
-                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Security</span>
+                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">SpringSecurity</span>
+                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">SQL</span>
+
                 </div>
                 <a 
                   href="https://github.com/jakub-szewczyk/jakub-szewczyk/tree/main/Projekt%20Katering.rar" 
