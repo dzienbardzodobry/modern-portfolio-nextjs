@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import Terminal from './components/Terminal';
 
 export default function Home() {
   // --- DETEKCJA SCROLLOWANIA STRONY ---
@@ -80,6 +81,8 @@ export default function Home() {
     window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
     setIsModalOpen(false);
   };
+
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
 
   return (
     <main className="min-h-screen bg-gray-950 text-white font-sans overflow-x-hidden scroll-smooth">
@@ -530,6 +533,12 @@ export default function Home() {
             >
               jszewczyk728@gmail.com
             </button>
+            <button 
+              onClick={() => setIsTerminalOpen(true)}
+              className="text-xs font-bold text-gray-600 hover:text-blue-500 transition cursor-pointer"
+            >
+            [ Uruchom Terminal CLI ]
+             </button>
           </div>
         </div>
 
@@ -643,6 +652,8 @@ export default function Home() {
         )}
       </AnimatePresence>
 
+      <Terminal isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
+
     </main>
   );
 }
@@ -691,7 +702,7 @@ function CateringSimulator() {
           }}
           className="w-full py-1.5 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-[11px] font-bold rounded-lg text-gray-300 transition text-center cursor-pointer"
         >
-          {step === 3 ? "Resetuj i zacznij od nowa ↺" : "Symuluj kolejny krok potoku →"}
+          {step === 3 ? "Resetuj i zacznij od nowa ↺" : "Symuluj kolejny krok →"}
         </button>
       </div>
     </div>
