@@ -1,6 +1,4 @@
-# 👋 Witam, jestem Jakub!
-
-🚀 Lubię poznawać nowe rzeczy
+# 👋 Witam
 
 
 ---
