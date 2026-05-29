@@ -83,6 +83,7 @@ export default function Home() {
   };
 
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [activeApp, setActiveApp] = useState<'eco' | 'football'>('eco');
 
 
     function MobileAppSimulator() {
@@ -330,21 +331,45 @@ export default function Home() {
         </div>
       </section>
 
-  {/* Wewnątrz sekcji Portfolio */}
-  <section id="mobile-showcase" className="py-24 px-6 md:px-10">
-    <div className="max-w-6xl mx-auto">
-      <h2 className="text-3xl font-extrabold text-center mb-12">Mobilne Centrum Dowodzenia</h2>
-      <p className="text-gray-400 max-w-xl mx-auto">Zobacz moje aplikacje mobilne, które zostały stworzone przeze mnie.</p>
+    {/* ZMODYFIKOWANA: Sekcja Mobile Showcase z poprawioną typografią i odstępami */}
+    <section id="mobile-showcase" className="py-24 px-6 md:px-10">
+      <div className="max-w-6xl mx-auto">
+        {/* Nagłówki wyśrodkowane z odpowiednim marginesem */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Aplikacje Mobilne</h2>
+          <p className="text-gray-400 max-w-xl mx-auto">
+            Zobacz moje aplikacje mobilne, które zostały zaprojektowane i wdrożone przeze mnie od podstaw.
+          </p>
+        </div>
 
-      <MobileAppSimulator />
-      
-      <div className="flex justify-center gap-4 mt-8">
-        {/* Tutaj dodamy przyciski przełączające między EcoFridge a Piłką Nożną */}
-        <button className="px-6 py-2 bg-emerald-600 rounded-full font-bold text-sm">EcoFridge</button>
-        <button className="px-6 py-2 bg-gray-800 rounded-full font-bold text-sm">Football Manager</button>
+        {/* Symulator */}
+        <MobileAppSimulator />
+        
+        {/* Przełączniki projektów */}
+        <div className="flex justify-center gap-4 mt-8">
+          <button 
+            onClick={() => setActiveApp('eco')}
+            className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${
+              activeApp === 'eco' 
+                ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/20' 
+                : 'bg-gray-900 text-gray-400 hover:bg-gray-800'
+            }`}
+          >
+            EcoFridge
+          </button>
+          <button 
+            onClick={() => setActiveApp('football')}
+            className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${
+              activeApp === 'football' 
+                ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' 
+                : 'bg-gray-900 text-gray-400 hover:bg-gray-800'
+            }`}
+          >
+            Football Manager
+          </button>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
       
 
       {/* Sekcja Usługi */}
