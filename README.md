@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 👋 Witam, jestem Jakub!
 
-## Getting Started
+🚀 Lubię poznawać nowe rzeczy
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💼 O mnie
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Byłem studentem Informatyki w Katolicki Uniwersytet Lubelski Jana Pawła II, ukończyłem studia zarówno I stopnia jak i II stopnia. Na studiach robiłem wiele projektów zarówno w dziedzinie uczelnianych takich jak np. Cyberiada oraz branie udziału w Lubelskie Dni Informatyki jak i również udało mi się stworzyć dane projekty.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚒️ Technologie i narzędzia
 
-## Learn More
+![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=flat)
+![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white&style=flat)
+![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white&style=flat)
+![Firebase](https://img.shields.io/badge/-Firebase-FFCA28?logo=firebase&logoColor=white&style=flat)
+![Android Studio](https://img.shields.io/badge/-Android%20Studio-3DDC84?logo=androidstudio&logoColor=white&style=flat)
+![Java](https://img.shields.io/badge/-Java-007396?logo=java&logoColor=white&style=flat)
+![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat)
+![HTML5](https://img.shields.io/badge/-HTML5-E34F26?logo=html5&logoColor=white&style=flat)
+![CSS3](https://img.shields.io/badge/-CSS3-1572B6?logo=css3&logoColor=white&style=flat)
+![PHP](https://img.shields.io/badge/-PHP-777BB4?logo=php&logoColor=white&style=flat)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚧 Moje projekty
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Nr oraz Link do projektu | Opis | Technologie | 
+| --- | --- | --- | 
+| [1](https://drive.google.com/drive/folders/1INURNwmzf-0lRGSaXKp7LzA0ZbULj3dl?usp=sharing) | Aplikacja mobilna do zarządzania drużyną piłkarską | Android Studio-Kotlin, Firebase |
+| [2](https://github.com/adrianstopa15/KateringAplikacja) | Projekt do kateringu | React, Spring boot, Spring Security|
+| [3] | Projekt lit-ors | TypeScript |
+| [4] | Projekt html z logowaniem i rejestracją | HTML |
+| [5] | Projekt do zarządzania zamówieniami na aukcji | JAVA |
+| [6] | Strona interentowa | HTML, Bootstrap |
+| [7] | Strona internetowa o moim hobby | HTML |
+| [8] | Projekt diagram UML | UML |
+| [9](https://drive.google.com/drive/folders/1INURNwmzf-0lRGSaXKp7LzA0ZbULj3dl?usp=sharing) | Strona internetowa do zarządzania biblioteką z systemem logowania i rejestracji z zachowaniem bezpieczeństwa danych | HTML, Boostrap, SQL, PHP |
+| [10] | Projekt do zarządzania rezerwacjami w hotelu | JAVA |
 
-## Deploy on Vercel
+Niektóre projekty umieszczone na dysku z racji że są trochę bardziej obszerniejsze.
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📫 Kontakt
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 📧 E-mail: [jszewczyk728@gmail.com](mailto:jszewczyk728@gmail.com)
+  
+
