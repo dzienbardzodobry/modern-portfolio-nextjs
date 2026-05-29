@@ -40,7 +40,6 @@ export default function Home() {
     'TypeScript', 'React', 'Jetpack Compose', 'Android SDK', 
     'Node.js', 'Framer Motion', 'Git', 'REST API'
   ];
-  const duplicatedTech = [...techStack, ...techStack];
 
   // --- LOGIKA KALKULATORA WYCENY ---
   const projectEstimate = useMemo(() => {
@@ -85,7 +84,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-950 text-white font-sans overflow-x-hidden scroll-smooth">
       
-      {/* PERFEKCYJNY: Statyczny logotyp zapobiegający rozjeżdżaniu się menu podczas scrollowania */}
+      {/* STABILNY: Przyczepiany pasek nawigacji bez skoków interfejsu */}
       <nav className={`flex justify-between items-center px-6 md:px-10 border-b border-gray-900 backdrop-blur-md sticky top-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-gray-950/95 py-4 shadow-lg shadow-black/50' : 'bg-gray-950/80 py-6'
       }`}>
@@ -157,7 +156,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ULEPSZONA: Sekcja Portfolio / Projekty (Zbalansowany 3-kolumnowy układ) */}
+      {/* ZBALANSOWANA: Sekcja Portfolio / Projekty (Układ 3-kolumnowy z Symulatorem) */}
       <section id="portfolio" className="py-24 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -167,7 +166,41 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             
-            {/* PROJEKT 1: Konfigurator Komputerowy */}
+            {/* PROJEKT 1: System Cateringu ze Spring Boot + SYMULATOR LIVE */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-gray-900/40 border border-gray-800 hover:border-orange-500/40 p-6 rounded-3xl transition duration-500 group flex flex-col justify-between"
+            >
+              <div>
+                <CateringSimulator />
+                <div className="flex justify-between items-center mt-5 mb-3">
+                  <h3 className="text-xl font-bold text-white group-hover:text-orange-400 transition">System Obsługi Kateringu</h3>
+                  <span className="text-[10px] font-bold uppercase bg-orange-500/10 text-orange-400 px-2.5 py-0.5 rounded-full border border-orange-500/20">Full-Stack</span>
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed mb-6">
+                  Kompleksowy system stworzony zespołowo do zarządzania zamówieniami, logistyką i dietami. Backend w Spring Boot zabezpieczony tokenami JWT kontroluje uprawnienia klientów, menedżerów oraz sekcji kuchni.
+                </p>
+              </div>
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Spring Boot</span>
+                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">React</span>
+                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Security</span>
+                </div>
+                <a 
+                  href="https://github.com/jakub-szewczyk/jakub-szewczyk/tree/main/Projekt%20Katering.rar" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center text-xs font-bold text-orange-400 hover:text-orange-300 gap-1 group/link"
+                >
+                  Zobacz kod źródłowy <span className="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                </a>
+              </div>
+            </motion.div>
+
+            {/* PROJEKT 2: Konfigurator Komputerowy */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -198,7 +231,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* NOWOŚĆ - PROJEKT 2: Kreator Formularzy (Przeniesiony i rozbudowany jako subpage) */}
+            {/* PROJEKT 3: Kreator Formularzy */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -226,35 +259,6 @@ export default function Home() {
                 <Link href="/kreator-formularzy" className="inline-flex items-center text-xs font-bold text-purple-400 hover:text-purple-300 gap-1 group/link">
                   Wypróbuj kreator sam <span className="transform group-hover/link:translate-x-1 transition-transform">→</span>
                 </Link>
-              </div>
-            </motion.div>
-
-            {/* PROJEKT 3: EcoFridge */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-gray-900/40 border border-gray-800 hover:border-green-500/40 p-6 rounded-3xl transition duration-500 group flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-full h-44 rounded-2xl mb-5 bg-gradient-to-br from-emerald-600/20 to-teal-600/20 border border-gray-800 flex items-center justify-center relative overflow-hidden group-hover:from-emerald-600/30 group-hover:to-teal-600/30 transition duration-500">
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:24px_24px] opacity-20"></div>
-                  <span className="text-4xl group-hover:scale-110 transition duration-500">📱</span>
-                </div>
-                <div className="flex justify-between items-center mb-3">
-                  <h3 className="text-xl font-bold text-white group-hover:text-green-400 transition">EcoFridge App</h3>
-                  <span className="text-[10px] font-bold uppercase bg-green-500/10 text-green-400 px-2.5 py-0.5 rounded-full border border-green-500/20">Google Play</span>
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed mb-6">
-                  Inteligentny, natywny program mobilny wspierający zarządzanie żywnością. Oferuje system inwentaryzacji domowej lodówki, powiadomienia o terminach przydatności oraz analizator zdjęć oparty na modelach sztucznej inteligencji.
-                </p>
-              </div>
-              <div>
-                <div className="flex flex-wrap gap-1.5 mb-5">
-                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Kotlin</span>
-                  <span className="bg-gray-950 text-gray-500 text-[11px] px-2.5 py-0.5 rounded border border-gray-900">Firebase</span>
-                </div>
-                <span className="text-[11px] text-gray-500 italic">Etap: Testy produkcyjne</span>
               </div>
             </motion.div>
 
@@ -480,14 +484,13 @@ export default function Home() {
               <Link href="#portfolio" className="hover:text-white transition">Portfolio</Link>
               <Link href="#uslugi" className="hover:text-white transition">Usługi</Link>
               <Link href="#kalkulator" className="hover:text-white transition">Wycena Live</Link>
-              <Link href="#cennik" className="hover:text-white transition">Cennik</Link>
               <Link href="/kreator-formularzy" className="hover:text-purple-400 text-purple-500 transition">Kreator UI</Link>
               <Link href="/konfigurator" className="hover:text-blue-400 text-blue-500 transition">Konfigurator</Link>
             </div>
           </div>
 
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Contact</h4>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Kontakt</h4>
             <p className="text-sm text-gray-400 mb-2">Masz pomysł na aplikację biznesową?</p>
             <button 
               onClick={() => openContactModal("Cześć Jakub, chciałbym porozmawiać o darmowej wycenie mojego pomysłu.")}
@@ -609,5 +612,56 @@ export default function Home() {
       </AnimatePresence>
 
     </main>
+  );
+}
+
+// --- POMOCNICZY KOMPONENT SYMULATORA CATERINGU ---
+function CateringSimulator() {
+  const [step, setStep] = useState<number>(0);
+
+  const stepsInfo = [
+    { label: "⚛️ React Frontend", desc: "Użytkownik klika: 'Zamów dietę 2500 kcal' i wysyła zapytanie POST." },
+    { label: "🛡️ Spring Security", desc: "Filtr przechwytuje żądanie, sprawdza poprawność tokenu Bearer JWT." },
+    { label: "🍃 Spring Boot Backend", desc: "Kontroler przetwarza logikę biznesową i przelicza makroskładniki." },
+    { label: "🗄️ Baza Danych (SQL)", desc: "Hibernate wykonuje transakcję: Zapisanie zamówienia ze statusem PAID." }
+  ];
+
+  return (
+    <div className="w-full h-44 rounded-2xl bg-gray-950 border border-gray-800 p-4 flex flex-col justify-between relative overflow-hidden select-none">
+      <div>
+        <div className="flex justify-between items-center mb-1">
+          <span className="text-[10px] uppercase font-black tracking-widest text-orange-500">Symulator architektury API</span>
+          <span className="text-[10px] text-gray-600 font-mono">Krok {step + 1}/4</span>
+        </div>
+        
+        <div className="mt-2">
+          <h4 className="text-xs font-bold text-white transition-all">{stepsInfo[step].label}</h4>
+          <p className="text-[11px] text-gray-400 leading-normal mt-1 min-h-[36px]">{stepsInfo[step].desc}</p>
+        </div>
+      </div>
+
+      <div className="space-y-3">
+        <div className="grid grid-cols-4 gap-1">
+          {[0, 1, 2, 3].map((i) => (
+            <div 
+              key={i} 
+              className={`h-1 rounded-full transition-all duration-300 ${
+                i <= step ? 'bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.4)]' : 'bg-gray-800'
+              }`}
+            />
+          ))}
+        </div>
+
+        <button 
+          onClick={(e) => {
+            e.preventDefault();
+            setStep((prev) => (prev + 1) % 4);
+          }}
+          className="w-full py-1.5 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-[11px] font-bold rounded-lg text-gray-300 transition text-center cursor-pointer"
+        >
+          {step === 3 ? "Resetuj i zacznij od nowa ↺" : "Symuluj kolejny krok potoku →"}
+        </button>
+      </div>
+    </div>
   );
 }
