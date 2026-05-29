@@ -604,13 +604,15 @@ function MobileAppSimulator() {
             >
               jszewczyk728@gmail.com
             </button>
-          </div>
-          <button 
+
+            <button 
               onClick={() => setIsTerminalOpen(true)}
               className="text-xs font-bold text-gray-600 hover:text-blue-500 transition cursor-pointer"
             >
             [ Uruchom Terminal CLI ]
              </button>
+          </div>
+          
         </div>
 
         <div className="max-w-6xl mx-auto pt-8 border-t border-gray-900/60 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-600">
