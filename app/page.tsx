@@ -616,7 +616,7 @@ export default function Home() {
         </div>
 
         <div className="max-w-6xl mx-auto pt-8 border-t border-gray-900/60 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-600">
-          <p>© 2026 Jakub Szewczyk. Wszystkie prawa zastrzeżone.</p>
+          <p>© 2026 Jakub Szewczyk. Wszelkie prawa zastrzeżone.</p>
           <p>Built with Next.js, Tailwind CSS & Framer Motion</p>
         </div>
       </footer>
