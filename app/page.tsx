@@ -255,7 +255,7 @@ export default function Home() {
 
                 </div>
                 <a 
-                  href="https://github.com/jakub-szewczyk/jakub-szewczyk/tree/main/Projekt%20Katering.rar" 
+                  href="https://drive.google.com/file/d/1fDpA29kAtXJwK-9NYVmfm1cLY6pw-5yZ/view?usp=drive_link" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="inline-flex items-center text-xs font-bold text-orange-400 hover:text-orange-300 gap-1 group/link"
@@ -528,7 +528,7 @@ export default function Home() {
             {/* Pakiet 2 */}
             <div className="bg-gray-900 border-2 border-blue-600 p-8 rounded-3xl flex flex-col justify-between shadow-xl shadow-blue-600/5 relative">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full">
-                Najpopularniejszy
+                Najlepszy wybór
               </div>
               <div>
                 <h3 className="text-lg font-bold text-white mb-2">Dedykowana Aplikacja Web</h3>
@@ -580,7 +580,7 @@ export default function Home() {
           <div>
             <div className="text-xl font-bold tracking-wider mb-4">Jakub Szewczyk<span className="text-blue-500">.</span></div>
             <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
-              Projektuję i koduję wydajne aplikacje mobilne oraz zaawansowane systemy webowe. Łączę technologię z intuicyjnym designem.
+              Projektuję i koduję aplikacje mobilne oraz zaawansowane systemy webowe. Łączę technologię z intuicyjnym designem.
             </p>
           </div>
           
