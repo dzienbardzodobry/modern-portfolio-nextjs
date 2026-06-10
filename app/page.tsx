@@ -79,12 +79,15 @@ export default function Home() {
     );
     
     window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
-    setIsModalOpen(false);
+    
+    // Opóźnienie zamknięcia modala, aby przeglądarka zdążyła uruchomić klienta poczty
+    setTimeout(() => {
+      setIsModalOpen(false);
+    }, 300);
   };
 
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [activeApp, setActiveApp] = useState<'eco' | 'football'>('eco');
-
 
     function MobileAppSimulator() {
       const [items, setItems] = useState<{name: string, cat: string}[]>([
