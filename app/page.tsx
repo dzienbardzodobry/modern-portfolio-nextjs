@@ -78,12 +78,18 @@ export default function Home() {
       `Cześć Jakub,\n\nNazywam się ${formData.name}.\nMoje dane kontaktowe: ${formData.email}\n\nSzczegóły wiadomości:\n${formData.message}`
     );
     
-    window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
+    // GŁÓWNA ZMIANA: Niewidzialny anchor tag omija błąd "canceled" w DevTools
+    const mailtoLink = `mailto:${emailTo}?subject=${subject}&body=${body}`;
+    const link = document.createElement('a');
+    link.href = mailtoLink;
+    document.body.appendChild(link); // Wrzucamy go na moment do DOM
+    link.click(); // Symulujemy kliknięcie
+    document.body.removeChild(link); // Sprzątamy go po sobie
     
-    // Opóźnienie zamknięcia modala, aby przeglądarka zdążyła uruchomić klienta poczty
+    // Dajemy bezpieczne 500ms zapasu na start zewnętrznej apki zanim zniszczymy modal
     setTimeout(() => {
       setIsModalOpen(false);
-    }, 300);
+    }, 500);
   };
 
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
