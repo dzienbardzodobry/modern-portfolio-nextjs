@@ -78,18 +78,14 @@ export default function Home() {
       `Cześć Jakub,\n\nNazywam się ${formData.name}.\nMoje dane kontaktowe: ${formData.email}\n\nSzczegóły wiadomości:\n${formData.message}`
     );
     
-    // GŁÓWNA ZMIANA: Niewidzialny anchor tag omija błąd "canceled" w DevTools
     const mailtoLink = `mailto:${emailTo}?subject=${subject}&body=${body}`;
-    const link = document.createElement('a');
-    link.href = mailtoLink;
-    document.body.appendChild(link); // Wrzucamy go na moment do DOM
-    link.click(); // Symulujemy kliknięcie
-    document.body.removeChild(link); // Sprzątamy go po sobie
     
-    // Dajemy bezpieczne 500ms zapasu na start zewnętrznej apki zanim zniszczymy modal
-    setTimeout(() => {
-      setIsModalOpen(false);
-    }, 500);
+    // NAJPEWNIEJSZA METODA DLA SPA: Wyrzucamy żądanie mailto do "pustej karty" (_blank). 
+    // Zapobiega to anulowaniu (canceled) żądania przez odmontowanie komponentu Reacta w obecnym oknie.
+    window.open(mailtoLink, '_blank');
+    
+    // Skoro żądanie poszło obok, możemy natychmiast bezpiecznie zamknąć modal
+    setIsModalOpen(false);
   };
 
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
